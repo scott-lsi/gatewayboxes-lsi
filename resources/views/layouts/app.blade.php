@@ -44,77 +44,64 @@
                     <ul class="nav navbar-nav" >
                         @if(\Auth::check())
                         <li><a href="{{ action('ProductController@index') }}">All Products</a></li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Powerbanks<span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                            <li><a href="{{ action('ProductController@getProductsByType', 'Powerbanks') }}">All Powerbanks</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'pb101Powerbanks') }}">PB101 - Cuboid Metal 2000mAh</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'pb116Powerbanks') }}">PB116 - Credit Card 2500mAh</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'pb119Powerbanks') }}">PB119 - Flat 4000mAh</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'pb119cPowerbanks') }}">PB119c - Flat 8000mAh</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'shirtPowerbanks') }}">Football Shirt</a></li>
-                          </ul>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notebooks<span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                            <li><a href="{{ action('ProductController@getProductsByType', 'Notebooks') }}">All Notebooks</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'hollyEdgeA5Notebooks') }}">A5 Holly Edge Book</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'hollyA5Notebooks') }}">A5 Holly Book</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'hollyA6Notebooks') }}">A6 Holly Book</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'alfieA5Notebooks') }}">A5 Alfie Book</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'alfieA6Notebooks') }}">A6 Alfie Book</a></li>
-                          </ul>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pens<span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                            <li><a href="{{ action('ProductController@getProductsByType', 'Pens') }}">All Pens</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'curvyBallpen') }}">Curvy Ballpen</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'contourBallpen') }}">Contour Ballpen</a></li>
-                          </ul>
-                        </li>
-                        
+
+                        <!-- Deleted other navigations from here -->
+
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boxes<span class="caret"></span></a>
                           <ul class="dropdown-menu">
                             <li><a href="{{ action('ProductController@getProductsByType', 'Boxes') }}">All Boxes</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Midi Box</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxWithItems') }}">Midi Box With Items</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox1') }}">Exec Box 1</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox3') }}">Exec Box 3</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox4') }}">Exec Box 4</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox5') }}">Exec Box 5</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox6') }}">Exec Box 6</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox7') }}">Exec Box 7</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox8') }}">Exec Box 8</a></li>
                           </ul>
                         </li>
 
-                        <li>
-                            <a href="{{ action('ProductController@getProductsByType', 'Mugs') }}" >Mugs</a>
-                        </li>
+                        <!-- Removed Mugs From Here -->
                         @endif
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                            @if(!\Auth::check())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                            @else
-                            <li><a href="{{ action('OrderController@getOrders', ['id' => auth()->user()->id]) }}">My Orders</a></li>
-                            <li><a href="{{ action('CartController@index') }}">Basket</a></li>
-                            <li><a href="{{ action('HomeController@logout') }}">Log Out</a></li>
+                            @if(Auth::check() && Auth::user()->isAdmin())
+                            <li>
+                                <a href="{{ action('ProductController@getTrashed') }}">Soft Deletes</a>
+                            </li>
+                            <li>
+                                <a href="/userreg">Make User</a>
+                            </li>                       
                             @endif
-                        </ul>
+                            @if(!\Auth::check())
+                            <li>
+                                <a href="{{ route('login') }}">Login</a>
+                            </li>
+                            @else
+                            <li>
+                                <a href="{{ action('OrderController@getOrders', ['id' => auth()->user()->id]) }}">My Orders</a>
+                            </li>
+                            <li>
+                                <a href="{{ action('CartController@index') }}">Basket</a>
+                            </li>
+                            <li>
+                                <a href="{{ action('HomeController@logout') }}">Log Out</a>
+                            </li>
+                            @endif
+                    </ul>
                 </div>
             </div>
         </nav>
         
-        @if(session('message'))
-            <div class="container">
-                <div class="alert alert-{{ session('message.type')}}">
-                    {!! session('message.content') !!}
-                </div>
+        @if(session()->has('message'))
+        <div class="container">
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
             </div>
+        </div>
         @endif
 
         @yield('content')

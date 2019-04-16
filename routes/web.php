@@ -19,7 +19,11 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
 Route::get('/export', 'ExportController@exportOrders');
 
+Route::view('userreg', 'users/userreg');
+Route::post('userreg', 'UsersController@store');
+
 Route::get('/products', 'ProductController@index');
+Route::get('/products/trashed', 'ProductController@getTrashed');
 Route::get('/products/{type}', 'ProductController@getProductsByType');
 Route::resource('product', 'ProductController');
 Route::get('product/personaliser/{id}/{gatewaymulti?}', 'ProductController@personaliser');

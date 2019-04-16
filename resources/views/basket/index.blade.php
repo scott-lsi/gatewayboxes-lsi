@@ -43,7 +43,7 @@
                             </p>
                             @endif
 
-                            <p><strong>Unit Price:</strong> £{{ $row->price }}</p>
+                            <p><strong>Unit Price Is:</strong> £{{ $row->price }}</p>
                             <p><strong>Total:</strong> £{{ $row->price * $row->qty }}</p>
                             
                             {!! Form::open(['action' => ['CartController@postUpdateQty', $row->rowId]]) !!}
@@ -71,43 +71,49 @@
         <div class="col-md-3">
             @if($basket->count() >= 1)
             <div class="panel panel-primary">
-                <div class="panel-heading">Just a few details&hellip;</div>
+                <div class="panel-heading">Enter details below&hellip;</div>
                 <div class="panel-body">
                     {!! Form::open(['action' => 'CartController@postToPrint']) !!}
                         
                         {!! Form::hidden('user_id', auth()->user()->id) !!}
 
                         <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            {!! Form::text('name', auth()->user()->name, ['class' => 'form-control', 'id' => 'name']) !!}
-                        </div>
-                    
-                        <div class="form-group">
                             <label for="name">Your Email Address *</label>
-                            {!! Form::text('email', auth()->user()->email, ['class' => 'form-control', 'id' => 'email']) !!}
+                            {!! Form::text('email', auth()->user()->email, ['class' => 'form-control', 'id' => 'email', 'required']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Customer Number *</label>
-                            {!! Form::text('custnumber', null, ['class' => 'form-control', 'id' => 'custnumber']) !!}
+                            <label for="name">Company Name *</label>
+                            {!! Form::text('compname', null, ['class' => 'form-control', 'id' => 'compname', 'required']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Customer Name *</label>
-                            {!! Form::text('custname', null, ['class' => 'form-control', 'id' => 'custname']) !!}
+                            <label for="email">Telephone Number *</label>
+                            {!! Form::text('telenum', null, ['class' => 'form-control', 'id' => 'telenum', 'required']) !!}
                         </div>
 
+                        <p for="email"><u>Address</u></p>
                         <div class="form-group">
-                            <label for="email">Preferred Delivery Date</label>
-                            {!! Form::date('deldate', \Carbon\Carbon::now()->addWeekdays(1), ['class' => 'form-control', 'id' => 'deldate']) !!}
+                            <label for="email">Address Line 1 *</label>
+                            {!! Form::text('addline1', null, ['class' => 'form-control', 'id' => 'addline1', 'required']) !!}
                         </div>
-
                         <div class="form-group">
-                            <label for="email">More Info</label>
-                            {!! Form::textarea('moreinfo', null, ['class' => 'form-control', 'id' => 'moreinfo']) !!}
+                            <label for="email">Address Line 2</label>
+                            {!! Form::text('addline2', null, ['class' => 'form-control', 'id' => 'addline2']) !!}
                         </div>
-
-                        <p>You can add more to your basket by using the navigation at the top of the page rather than doing multiple orders. Thanks :)</p>
+                        <div class="form-group">
+                            <label for="email">Post Code *</label>
+                            {!! Form::text('postcode', null, ['class' => 'form-control', 'id' => 'postcode', 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            <label for="email">City *</label>
+                            {!! Form::text('city', null, ['class' => 'form-control', 'id' => 'city', 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            <label for="email">County</label>
+                            {!! Form::text('county', null, ['class' => 'form-control', 'id' => 'county']) !!}
+                        </div>
+                        
 
                         {!! Form::submit('Send To Print', ['class' => 'btn btn-block btn-primary']) !!}
                     {!! Form::close() !!}

@@ -23,7 +23,7 @@
             {!! $product->description !!}
             
             <p>£{{ $product->price }}</p>
-            <p>Cost is per label (delivery charges not included)</p>
+            <p>Cost is per item (delivery charges not included)</p>
             
             @if($product->gateway)
             <p>You may personalise this product</p>

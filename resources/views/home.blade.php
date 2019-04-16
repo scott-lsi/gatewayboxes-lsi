@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h1>LSi Print Creator</h1>
+    <h1>{{ config('app.name', 'Personaliser') }}</h1>
     
     <hr>
     

@@ -3,12 +3,11 @@
 @section('content')
 
 <div class="container">
-    <h1>Products</h1>
+    <h1>{{ $title }}</h1>
     
     <hr>
     
     <div class="row">
-
     	<?php $i = 1; ?>
         @foreach($products as $product)
 
