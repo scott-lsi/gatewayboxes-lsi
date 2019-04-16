@@ -76,6 +76,7 @@
                     {!! Form::open(['action' => 'CartController@postToPrint']) !!}
                         
                         {!! Form::hidden('user_id', auth()->user()->id) !!}
+                        {!! Form::hidden('name', auth()->user()->name) !!}
 
                         <div class="form-group">
                             <label for="name">Your Email Address *</label>

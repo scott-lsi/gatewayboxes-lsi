@@ -99,31 +99,38 @@ class CartController extends Controller
     
 	public function postToPrint(Request $request){
         // prepare the artwork
-        $g3d = $this->gatewayPrepare($request, $request->input('custnumber')); 
+        $g3d = $this->gatewayPrepare($request, $request->input('compname')); 
         
         // create a new order for the db        
         $order = new Order;
         $order->user_id = $request->input('user_id');
         $order->name = $request->input('name');
-        $order->custnumber = $request->input('custnumber');
-        $order->custname = $request->input('custname');
-        $order->moreinfo = $request->input('moreinfo');
         $order->email = $request->input('email');
+        $order->compname = $request->input('compname');
+        $order->telenum = $request->input('telenum');
+        $order->addline1 = $request->input('addline1');
+        $order->addline2 = $request->input('addline2');
+        $order->postcode = $request->input('postcode');
+        $order->city = $request->input('city');
+        $order->county = $request->input('county');
         $order->basket = json_encode(Cart::content());
         $order->g3d = $g3d;
         
         // email
         $view_data = [
-            'name' => $request->name,
             'email' => $request->email,
-            'custnumber' => $request->custnumber,
-            'custname' => $request->custname,
-            'moreinfo' => $request->moreinfo,
-            'deldate' => $request->deldate,
+            'name' => $request->name,
+            'compname' => $request->compname,
+            'telenum' => $request->telenum,
+            'addline1' => $request->addline1,
+            'addline2' => $request->addline2,
+            'postcode' => $request->postcode,
+            'city' => $request->city,
+            'county' => $request->county,
             'basket' => \Cart::Content(),
         ];
         $email_data = [
-            'name' => $request->name,
+            'compname' => $request->compname,
             'email' => $request->email,
         ];
         
@@ -158,22 +165,23 @@ class CartController extends Controller
         return json_decode($json);
     }
     
-    private function gatewayPrepare(Request $request, $custnumber){
+    private function gatewayPrepare(Request $request, $compname){
         $gatewayArray = [
-            'external_ref' => $request->input('custnumber'),
+            'external_ref' => $request->input('compname'),
             'company_ref_id' => env('GATEWAY_COMPANY'),
             'sale_datetime' => date('Y-m-d H:i:s'),
             
             'customer_name' => $request->input('name'),
             'customer_email' => $request->input('email'),
+            'customer_telephone' => $request->input('telenum'),
 			
-			'shipping_address_1' =>	$request->input('custname'),
-			'shipping_address_2' =>	$request->input('moreinfo'),
-			'shipping_address_3' =>	'',
-			'shipping_address_4' =>	'',
+			'shipping_address_1' =>	$request->input('addline1'),
+			'shipping_address_2' =>	$request->input('addline2'),
+			'shipping_address_3' =>	$request->input('city'),
+			'shipping_address_4' =>	$request->input('county'),
 			'shipping_address_5' =>	'',
-			'shipping_postcode' =>	'',
-			'shipping_country' =>	'',
+			'shipping_postcode' => $request->input('postcode'),
+			'shipping_country' => '',
 			'shipping_country_code' => '',
 			
 			'shipping_method' =>	'',
@@ -201,7 +209,7 @@ class CartController extends Controller
                 
                 $productArray = [
                     'sku' => $product->sku,
-                    'external_ref' => $custnumber,
+                    'external_ref' => $compname,
                     'description' => $row->name,
                     'quantity' => $row->qty,
                     'type' => 2, // 2 = Print Job (http://developers.gateway3d.com/Print-iT_Integration#Item_Type_Codes)
@@ -251,7 +259,7 @@ class CartController extends Controller
         }
         
         \Mail::send('emails.order', $view_data, function($message) use($email_data, $bcc) {
-            $message->to($email_data['email'], $email_data['name'])
+            $message->to($email_data['email'], $email_data['compname'])
                     ->bcc($bcc)
                     ->subject(env('EMAIL_ORDER_SUBJECT'));
         });

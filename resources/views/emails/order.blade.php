@@ -8,10 +8,13 @@
 	<td>
         <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Hi {{ $name }},</p>
         <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Your LSi print creator order has been created.</p>
-        <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Customer Name: {{ $custname }},</p>
-        <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Customer Number: {{ $custnumber }},</p>
-        <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Preferred Delivery Date: {{ $deldate }},</p>
-        <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">More Info: {{ $moreinfo }},</p>
+        <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Company Name: {{ $compname }},</p>
+        <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Telephone Number: {{ $telenum }},</p>
+        <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Address Line 1: {{ $addline1 }},</p>
+		<p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Address Line 2: {{ $addline2 }},</p>
+        <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Postcode: {{ $postcode }},</p>
+		<p style="font-size:14px; margin-top:30px; margin-bottom:20px;">City: {{ $city }},</p>
+		<p style="font-size:14px; margin-top:30px; margin-bottom:20px;">County: {{ $county }},</p>
 	</td>
 </tr>
 

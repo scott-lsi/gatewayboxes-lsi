@@ -4,23 +4,21 @@
 
 <div class="container">
     <h1>My Orders</h1>
-    <h4>Click Customer Number to view order</h4>
+    <h4>Click the date to view order</h4>
     <hr>
 
     <table class="table">
 		<thead>
 			<tr>
-				<th>Customer Number</th>
-				<th>Customer Name</th>
-				<th>Date</th>
+				<th>Created At</th>
+				<th>Company Name</th>
 			</tr>
 		</thead>
 		<tbody>
     	@foreach($orders as $order)
 			<tr>
-				<td><a href="{{ action('OrderController@getOrder', ['id' => $order['id']]) }}">{{ $order['custnumber'] }}</a></td>
-				<td>{{ $order['custname'] }}</td>
-				<td>{{ $order['created_at'] }}</td>
+				<td><a href="{{ action('OrderController@getOrder', ['id' => $order['id']]) }}">{{ $order['created_at'] }}</a></td>
+				<td>{{ $order['compname'] }}</td>
 			</tr>
 
     	@endforeach
