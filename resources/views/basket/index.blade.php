@@ -79,39 +79,44 @@
                         {!! Form::hidden('name', auth()->user()->name) !!}
 
                         <div class="form-group">
-                            <label for="name">Your Email Address *</label>
+                            <label for="jobref">Job Reference *</label>
+                            {!! Form::text('jobref', null, ['class' => 'form-control', 'id' => 'jobref', 'required']) !!}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email Address *</label>
                             {!! Form::text('email', auth()->user()->email, ['class' => 'form-control', 'id' => 'email', 'required']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Company Name *</label>
+                            <label for="compname">Company Name *</label>
                             {!! Form::text('compname', null, ['class' => 'form-control', 'id' => 'compname', 'required']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Telephone Number *</label>
+                            <label for="telenum">Telephone Number *</label>
                             {!! Form::text('telenum', null, ['class' => 'form-control', 'id' => 'telenum', 'required']) !!}
                         </div>
 
                         <p for="email"><u>Address</u></p>
                         <div class="form-group">
-                            <label for="email">Address Line 1 *</label>
+                            <label for="addline1">Address Line 1 *</label>
                             {!! Form::text('addline1', null, ['class' => 'form-control', 'id' => 'addline1', 'required']) !!}
                         </div>
                         <div class="form-group">
-                            <label for="email">Address Line 2</label>
+                            <label for="addline2">Address Line 2</label>
                             {!! Form::text('addline2', null, ['class' => 'form-control', 'id' => 'addline2']) !!}
                         </div>
                         <div class="form-group">
-                            <label for="email">Post Code *</label>
+                            <label for="postcode">Post Code *</label>
                             {!! Form::text('postcode', null, ['class' => 'form-control', 'id' => 'postcode', 'required']) !!}
                         </div>
                         <div class="form-group">
-                            <label for="email">City *</label>
+                            <label for="city">City *</label>
                             {!! Form::text('city', null, ['class' => 'form-control', 'id' => 'city', 'required']) !!}
                         </div>
                         <div class="form-group">
-                            <label for="email">County</label>
+                            <label for="county">County</label>
                             {!! Form::text('county', null, ['class' => 'form-control', 'id' => 'county']) !!}
                         </div>
                         

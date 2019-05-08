@@ -107,6 +107,7 @@ class CartController extends Controller
         $order->name = $request->input('name');
         $order->email = $request->input('email');
         $order->compname = $request->input('compname');
+        $order->jobref = $request->input('jobref');
         $order->telenum = $request->input('telenum');
         $order->addline1 = $request->input('addline1');
         $order->addline2 = $request->input('addline2');
@@ -121,6 +122,7 @@ class CartController extends Controller
             'email' => $request->email,
             'name' => $request->name,
             'compname' => $request->compname,
+            'jobref' => $request->jobref,
             'telenum' => $request->telenum,
             'addline1' => $request->addline1,
             'addline2' => $request->addline2,
@@ -174,12 +176,13 @@ class CartController extends Controller
             'customer_name' => $request->input('name'),
             'customer_email' => $request->input('email'),
             'customer_telephone' => $request->input('telenum'),
-			
+            
+            'shipping_company' => $request->input('compname'),
 			'shipping_address_1' =>	$request->input('addline1'),
 			'shipping_address_2' =>	$request->input('addline2'),
 			'shipping_address_3' =>	$request->input('city'),
 			'shipping_address_4' =>	$request->input('county'),
-			'shipping_address_5' =>	'',
+			'shipping_address_5' =>	$request->input('jobref'),
 			'shipping_postcode' => $request->input('postcode'),
 			'shipping_country' => '',
 			'shipping_country_code' => '',

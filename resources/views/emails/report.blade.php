@@ -7,7 +7,7 @@
 <tr>
 	<td>
         <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Hi,</p>
-        <p style="font-size:14px; margin-top:10px; margin-bottom:20px;">Please find attached the report for the previous month for J&auml;germeister labels</p>
+        <p style="font-size:14px; margin-top:10px; margin-bottom:20px;">Please find attached the report for the previous month for LSi Trade Boxes</p>
 	</td>
 </tr>
 <tr>

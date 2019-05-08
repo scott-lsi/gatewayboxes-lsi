@@ -11,6 +11,7 @@
 		<thead>
 			<tr>
 				<th>Created At</th>
+				<th>Job Reference</th>
 				<th>Company Name</th>
 			</tr>
 		</thead>
@@ -18,6 +19,7 @@
     	@foreach($orders as $order)
 			<tr>
 				<td><a href="{{ action('OrderController@getOrder', ['id' => $order['id']]) }}">{{ $order['created_at'] }}</a></td>
+				<td>{{ $order['jobref'] }}</td>
 				<td>{{ $order['compname'] }}</td>
 			</tr>
 
