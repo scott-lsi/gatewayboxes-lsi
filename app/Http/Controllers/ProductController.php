@@ -164,7 +164,7 @@ class ProductController extends Controller
 		
 		$epaArray = [
 			'name' => $product->name,
-			'description' => $product->description,
+			'description' => strip_tags($product->description),
 		];
 		$epaJson = json_encode($epaArray);
 		

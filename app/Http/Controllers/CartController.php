@@ -169,7 +169,7 @@ class CartController extends Controller
     
     private function gatewayPrepare(Request $request, $compname){
         $gatewayArray = [
-            'external_ref' => $request->input('compname'),
+            'external_ref' => $request->input('compname') . '-' . str_random(8),
             'company_ref_id' => env('GATEWAY_COMPANY'),
             'sale_datetime' => date('Y-m-d H:i:s'),
             
