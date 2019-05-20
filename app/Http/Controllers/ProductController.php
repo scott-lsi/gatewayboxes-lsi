@@ -140,8 +140,8 @@ class ProductController extends Controller
     public function personaliser($id, $gatewaymultiId = null){
         $product = Product::find($id);
         
-        if(\App::environment('local')) { $iframeUrl = 'https://g3d-app.com/s/app/acp3_2/en_GB/'; }
-        else { $iframeUrl = 'https://g3d-app.com/s/app/acp3_2/en_GB/'; }
+        if(\App::environment('local')) { $iframeUrl = 'https://g3d-app.com/s/app/acp3_2/en_LSI/'; }
+        else { $iframeUrl = 'https://g3d-app.com/s/app/acp3_2/en_LSI/'; }
         $iframeUrl .= env('GATEWAY_CONFIG') . '.html';
         $iframeUrl .= '#p=' . $product->gateway;
         $iframeUrl .= '&guid=' . env('GATEWAY_COMPANY');

@@ -4,6 +4,7 @@
 
 <div class="container">
     <h1>Products</h1>
+    <h4>Length x Width x Depth</h4>
     
     <hr>
     

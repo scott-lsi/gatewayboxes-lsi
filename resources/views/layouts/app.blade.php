@@ -52,18 +52,39 @@
                           <ul class="dropdown-menu">
                             <li><a href="{{ action('ProductController@getProductsByType', 'Boxes') }}">All Boxes</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Midi Box</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox1') }}">Exec Box 1</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox3') }}">Exec Box 3</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox4') }}">Exec Box 4</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox5') }}">Exec Box 5</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox6') }}">Exec Box 6</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox7') }}">Exec Box 7</a></li>
-                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox8') }}">Exec Box 8</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Gift Box</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox1') }}">Gift Box 1</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox3') }}">Gift Box 3</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox4') }}">Gift Box 4</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox5') }}">Gift Box 5</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox6') }}">Gift Box 6</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox7') }}">Gift Box 7</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox8') }}">Gift Box 8</a></li>
                           </ul>
                         </li>
 
-                        <!-- Removed Mugs From Here -->
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Intro Box<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{{ action('ProductController@getProductsByType', 'Boxes') }}">All Intro Boxes</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Black Intro Box</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox1') }}">White Intro Box</a></li>
+                          </ul>
+                        </li>
+
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Powerbank Box<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{{ action('ProductController@getProductsByType', 'Boxes') }}">All Powerbank Boxes</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Powerbank Box 4000mah</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Powerbank Box 4000mah White</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox1') }}">Powerbank Box 8000mah</a></li>
+                            <li><a href="{{ action('ProductController@getProductsByType', 'execBox1') }}">Powerbank Box 8000mah White</a></li>
+                          </ul>
+                        </li>
+
                         @endif
 
                     </ul>
