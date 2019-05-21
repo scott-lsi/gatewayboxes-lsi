@@ -22,6 +22,7 @@
                 ?>
                 <img src="{{ $imageurl }}" alt="{{ $product->name }}" class="img-responsive thumbnail">
                 <div class="h3" style="margin-bottom: 20px;">{{ $product->name }}</div>
+                <div class="h4" style="margin-bottom: 20px;">{{ $product->dimensions }}</div>
             </a>
         </div>
 

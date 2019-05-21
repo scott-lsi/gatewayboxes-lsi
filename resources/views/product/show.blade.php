@@ -4,19 +4,35 @@
 
 <div class="container">
     <h1>{{ $product->name }}</h1>
-    
     <hr>
-    
+
     <div class="row">
         <div class="col-md-5">
-            <?php
-                if(strncmp($product->image, 'http', 4) === 0){
-                    $imageurl = $product->image;
-                } else {
-                    $imageurl = asset('products/' . $product->image);
-                }
-            ?>
-            <img src="{{ $imageurl }}" alt="{{ $product->name }}" class="img-responsive">
+            @if($product->images->count())
+            <div id="product-main-image" style="background-image: url({{ asset('products/' . $product->images->first()->image) }}); background-size: cover;">
+                <?php if(strncmp($product->image, 'http', 4) === 0){ ?>
+                    <img src="{{ $product->images->first()->image }}" alt="{{ $product->name }}" class="img-responsive">
+                <?php } else { ?>
+                    <img src="{{ asset('products/' . $product->images->first()->image) }}" alt="{{ $product->name }}" class="img-responsive">
+                <?php } ?>
+            </div>
+            @else
+            <div id="product-main-image">
+                <img src="{{ asset('products/placeholder.png') }}" alt="{{ $product->name }}" class="img-responsive">
+            </div>
+            @endif
+
+            <div id="product-thumbnails" style="margin-top: 30px;">
+                <div class="row">
+                @foreach($product->images as $image)
+                    <div class="col-xs-3 thumbnail-wrapper">
+                        <a href="{{ asset('products/' . $image->image) }}">
+                            <img src="{{ asset('products/' . $image->image) }}" alt="{{ $product->name }}" class="img-responsive">
+                        </a>
+                    </div>
+                @endforeach
+                </div>
+            </div>
         </div>
         
         <div class="col-md-7">

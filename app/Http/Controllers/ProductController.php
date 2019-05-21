@@ -14,8 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        
+        $products = Product::where('is_hidden', 0)->get();
+
         return view('product.index', [
            'products' => $products,
         ]);
@@ -31,8 +31,6 @@ class ProductController extends Controller
             'title' => 'Discontinued Products'
         ]);
     }
-
-
     
     public function getProductsByType($type)
     {

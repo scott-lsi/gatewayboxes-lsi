@@ -15,4 +15,9 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function images(){
+        return $this->hasMany('App\Image');
+    }
+
 }
