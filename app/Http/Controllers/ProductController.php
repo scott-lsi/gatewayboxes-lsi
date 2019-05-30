@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::where('is_hidden', 0)->get();
+        $products = Product::active()->get();
 
         return view('product.index', [
            'products' => $products,
@@ -25,16 +25,18 @@ class ProductController extends Controller
     {
         // gets all the products that have been soft deleted
         $products = Product::onlyTrashed()->get();
+        $inactiveProducts = Product::inactive()->get();
 
         return view('product.trashed', [
             'products' => $products,
-            'title' => 'Discontinued Products'
+            'inactiveProducts' => $inactiveProducts,
+            'title' => 'Discontinued and Hidden Products'
         ]);
     }
     
     public function getProductsByType($type)
     {
-        $products = Product::where('category', 'like', '%%' . $type . '%%')->orderBy('name')->get();
+        $products = Product::where('category', 'like', '%%' . $type . '%%')->orderBy('id')->get();
         $title = $this->camelToNice($type);
 
         return view('product.productcat', [

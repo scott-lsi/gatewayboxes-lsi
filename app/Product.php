@@ -20,4 +20,14 @@ class Product extends Model
         return $this->hasMany('App\Image');
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('is_hidden', 0);
+    }
+
+    public function scopeInactive($query)
+    {
+        return $query->where('is_hidden', 1);
+    }
+
 }
