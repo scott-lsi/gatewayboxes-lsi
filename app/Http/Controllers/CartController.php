@@ -28,11 +28,11 @@ class CartController extends Controller
         // artwork
         $gateway = $this->gatewayAdd($_POST['data']);
         /* 
-        if the product is set up with aspects, it will return the sku of that aspect rather than the parent product.
-        however, it also returns a extra->state array, which contains the parent's product_id (what is stored as `gateway` in the db),
-        so it can be fetched by that.
-        products without aspects don't return extra->state, so this isset() looks for it, does it if it's there but gets the product
-        via the sku if not.
+        • if the product is set up with aspects, it will return the sku of that aspect rather than the parent product in $gateway->sku.
+        • however, it also returns a $gateway->extra->state array, which contains the parent's product_id (what is stored as `gateway`
+            in the db), so it can be fetched by that.
+        • products without aspects don't return $gateway->extra->state, so this isset() looks for it, does it if it's there but gets
+            the product via the sku if not.
         */
         if(isset($gateway->extra->state->product_id)){
             $product = Product::where('gateway', $gateway->extra->state->product_id)->first();
@@ -59,8 +59,6 @@ class CartController extends Controller
         $options['imageurl'] = $gateway->thumburl;
         $options['textinputs'] = $textInputs;
         $options['aspects'] = $aspects;
-
-        //dd($gateway);
         
         Cart::add(
             $product->id, 

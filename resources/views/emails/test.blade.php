@@ -7,7 +7,7 @@
 <tr>
 	<td>
         <p style="font-size:14px; margin-top:30px; margin-bottom:20px;">Hi,</p>
-        <p style="font-size:14px; margin-top:10px; margin-bottom:20px;">Thank you for your order for J&auml;germeister labels</p>
+        <p style="font-size:14px; margin-top:10px; margin-bottom:20px;">Thank you for your order.</p>
 	</td>
 </tr>
 <tr>
