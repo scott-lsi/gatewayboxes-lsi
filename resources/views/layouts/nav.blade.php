@@ -55,7 +55,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-
+            
             <ul class="nav navbar-nav navbar-right">
                     @if(Auth::check() && Auth::user()->isAdmin())
                     <li>
