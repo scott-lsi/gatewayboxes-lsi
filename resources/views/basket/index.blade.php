@@ -43,8 +43,8 @@
                             </p>
                             @endif
 
-                            <p><strong>Unit Price Is:</strong> £{{ $row->price }}</p>
-                            <p><strong>Total:</strong> £{{ $row->price * $row->qty }}</p>
+                            <p><strong>Price:</strong> £{{ $row->price }}</p>
+                            <!-- <p><strong>Total:</strong> £{{ $row->price * $row->qty }}</p>
                             
                             {!! Form::open(['action' => ['CartController@postUpdateQty', $row->rowId]]) !!}
                             <div class="row">
@@ -56,7 +56,7 @@
                                     {!! Form::submit('Update Qty', ['class' => 'btn btn-primary btn-sm']) !!}
                                 </div>
                             </div>
-                            {!! Form::close() !!}
+                            {!! Form::close() !!} -->
                             
                             <p><small><a href="{{ action('CartController@getRemoveItem', ['rowId' => $row->rowId]) }}">Remove</a></small></p>
                         </td>
@@ -120,8 +120,9 @@
                             {!! Form::text('county', null, ['class' => 'form-control', 'id' => 'county']) !!}
                         </div>
                         
-
+                        <h3>Subtotal: £{{ Cart::total() }}</h3>
                         {!! Form::submit('Send To Print', ['class' => 'btn btn-block btn-primary']) !!}
+                        
                     {!! Form::close() !!}
                 </div>
             </div>

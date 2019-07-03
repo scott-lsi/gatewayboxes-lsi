@@ -85,11 +85,18 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        $mobileUrl = 'https://app.gateway3d.com/acp/app/';
-        $mobileUrl .= '?';
-        $mobileUrl .= 'l=mobile';
-        $mobileUrl .= '&';
-        $mobileUrl .= 'c=7dzqyj5h26zljz4';
+        // https://g3d-app.com/s/app/mobile3/en_GB/
+        // default.html
+        // #
+        // p=2075844
+        // &r=2d-canvas
+        // &d=25266
+        // &pc=
+        // &_usePs=1
+        // &_pav=3]
+
+        $mobileUrl = 'https://g3d-app.com/s/app/mobile3/en_GB/';
+        $mobileUrl .= 'default.html';
         $mobileUrl .= '#';
         $mobileUrl .= 'p=' . $product->gateway;
         $mobileUrl .= '&guid=' . env('GATEWAY_COMPANY');
@@ -140,8 +147,7 @@ class ProductController extends Controller
     public function personaliser($id, $gatewaymultiId = null){
         $product = Product::find($id);
         
-        if(\App::environment('local')) { $iframeUrl = 'https://g3d-app.com/s/app/acp3_2/en_LSI/'; }
-        else { $iframeUrl = 'https://g3d-app.com/s/app/acp3_2/en_LSI/'; }
+        $iframeUrl = 'https://g3d-app.com/s/app/acp3_2/en_LSI/';    
         $iframeUrl .= env('GATEWAY_CONFIG') . '.html';
         $iframeUrl .= '#p=' . $product->gateway;
         $iframeUrl .= '&guid=' . env('GATEWAY_COMPANY');
