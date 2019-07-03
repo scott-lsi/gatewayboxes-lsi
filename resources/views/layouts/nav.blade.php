@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             @if(\Auth::check())
-            <a class="navbar-brand" href="{{ action('ProductController@index') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
             @else
