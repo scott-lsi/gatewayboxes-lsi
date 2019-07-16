@@ -95,7 +95,7 @@ class ProductController extends Controller
         // &_usePs=1
         // &_pav=3]
 
-        $mobileUrl = 'https://g3d-app.com/s/app/mobile3/en_GB/';
+        $mobileUrl = 'https://g3d-app.com/s/app/mobile3/en_LSI/';
         $mobileUrl .= 'default.html';
         $mobileUrl .= '#';
         $mobileUrl .= 'p=' . $product->gateway;

@@ -34,9 +34,9 @@ class ExportController extends Controller
             
             // build the order row and push onbto the array
             $thisorder = [
-                'orderid' => $order->orderid,
+                'orderid' => $order->id,
                 'placed_by' => $order->name,
-                'recipient' => $order->recipient,
+                'company_name' => $order->compname,
                 'date' => $order->created_at,
                 'total' => number_format($total, 2),
                 'items' => substr($items, 2), // remove leading comma
@@ -47,9 +47,9 @@ class ExportController extends Controller
                 $thisproduct = [
                     'orderid' => $order->orderid,
                     'placed_by' => $order->name,
-                    'recipient' => $order->recipient,
+                    'company_name' => $order->compname,
                     'date' => $order->created_at,
-                    'qty' => $row['qty'],
+                    'qty' => number_format($row['qty'], 0),
                     'total' => number_format($row['subtotal'], 2),
                     'item' => $row['name'],
                 ];
@@ -57,7 +57,7 @@ class ExportController extends Controller
             }
         }
         
-        $file = \Excel::create('SMMEX_' . $monthago_formatted . '-' . $today_formatted, function($excel) use($per_order, $per_product){
+        $file = \Excel::create('TRADEBOXES_' . $monthago_formatted . '-' . $today_formatted, function($excel) use($per_order, $per_product){
             $excel->sheet('per_product', function($sheet) use($per_product){
                $sheet->fromArray($per_product);
             });
@@ -73,7 +73,7 @@ class ExportController extends Controller
         
         \Mail::send('emails.report', $view_data, function($message) use($email_data, $file) {
             $message->to($email_data['email'])
-                    ->subject('SMMEX Order Report')
+                    ->subject('Trade Boxes Order Report')
                     ->attach($file['full']);
         });
         
