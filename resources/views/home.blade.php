@@ -31,7 +31,7 @@
     <hr>
     <div class="row">
         <div class="col-sm-3">
-            <img src="{{ asset('images/homepage/firstimp.jpg') }}" style="width: 200px;" alt="First Impressions">
+            <img src="{{ asset('images/homepage/fimpression.jpg') }}" style="width: 200px;" alt="First Impressions">
         </div>
         <div class="col-sm-9">
             <p class="lead">
