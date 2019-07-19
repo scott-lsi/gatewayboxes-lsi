@@ -45,7 +45,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ action('ProductController@getProductsByType', 'Intro Boxes') }}">Intro Box</a>
+                    <a href="{{ action('ProductController@getProductsByType', 'Intro Boxes') }}">Intro Boxes</a>
                 </li>
 
                 <li>

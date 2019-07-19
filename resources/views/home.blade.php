@@ -10,7 +10,7 @@
             <h3 class="text-muted">You are logged in.</h3>
         </div>
         <div class="col-sm-8 text-right">
-            <p class="lead">Oliver: 01274 854963<br>Dan: 01374 854977</p>
+            <p class="lead">Oliver: 01274 854963<br>Dan: 01274 854977</p>
         </div>
     </div>
 
