@@ -10,7 +10,7 @@
             <h3 class="text-muted">You are logged in.</h3>
         </div>
         <div class="col-sm-8 text-right">
-            <p class="lead">Oliver: 01274 854963<br>Dan: 01274 854977</p>
+            <p class="lead">Oliver: <span class="text-primary">01274 854963</span><br>Dan: <span class="text-primary">01274 854977</span><br>Email: <span class="text-primary">sales@thinkinsidethebox.online</span></p>
         </div>
     </div>
 
@@ -36,7 +36,7 @@
         <div class="col-sm-9">
             <p class="lead">
             Bespoke boxes are a fantastic way to add value to yours or your clients merchandise/giveaways. 
-            Gift boxes are used currently for product launches, onboarding gifts, thankyou and commemerative gifts. 
+            Gift boxes are used currently for product launches, onboarding gifts, thankyou and commemorative gifts. 
             Help your customers stay ahead of their competition and create a positive first impression.
             </p>
         </div>

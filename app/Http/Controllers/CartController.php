@@ -11,11 +11,13 @@ class CartController extends Controller
 {
     public function index(){
         $basket = Cart::content();
-        
+        // dd($basket);
         return view('basket.index', [
             'basket' => $basket,
             'countries' => \App\Country::orderBy('langEN')->pluck('langEN', 'alpha2'),
         ]);
+
+        
     }
     
     public function add(Request $request, $gatewaymultiId = null){

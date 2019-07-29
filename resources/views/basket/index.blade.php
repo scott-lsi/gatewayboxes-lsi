@@ -36,14 +36,20 @@
                             
                             @if($row->options->textinputs)
                             <p>
-                            <strong>Text to be printed</strong><br>
+                                <!-- Quick and easy way for the stardust pen to be shown as engraved now printed
+                                when inside the basket since it's the only product that is engraved. -->
+                                @if($row->id === 76)
+                                <strong>Text to be engraved</strong><br>
+                                @else
+                                <strong>Text to be printed</strong><br>
+                                @endif
                             @foreach($row->options->textinputs as $textinput)
                             {{ $textinput }}<br>
                             @endforeach
                             </p>
                             @endif
 
-                            <p><strong>Price:</strong> £{{ $row->price }}</p>
+                            <p><strong>Price:</strong> £{{ number_format($row->price,2) }}</p>
                             <!-- <p><strong>Total:</strong> £{{ $row->price * $row->qty }}</p>
                             
                             {!! Form::open(['action' => ['CartController@postUpdateQty', $row->rowId]]) !!}

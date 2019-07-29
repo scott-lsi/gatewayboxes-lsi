@@ -49,7 +49,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ action('ProductController@getProductsByType', 'Powerbank Boxes') }}">Powerbank Box</a>
+                    <a href="{{ action('ProductController@getProductsByType', 'Powerbank Boxes') }}">Powerbank Boxes</a>
                 </li>
                 @endif
             </ul>
