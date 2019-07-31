@@ -57,31 +57,25 @@
             <!-- Right Side Of Navbar -->
             
             <ul class="nav navbar-nav navbar-right">
-                    @if(Auth::check() && Auth::user()->isAdmin())
-                    <li>
-                        <a href="{{ action('ProductController@getTrashed') }}">Soft Deletes</a>
-                    </li>
-                    <li>
-                        <a href="/userreg">Make User</a>
-                    </li>                       
-                    @endif
                     @if(!\Auth::check())
                     <li>
                         <a href="{{ route('login') }}">Login</a>
                     </li>
                     @else
-                    <li>
-                        <a href="{{ action('GalleryImageController@index', ['id' => auth()->user()->id]) }}">Gallery</a>
-                    </li>
-                    <li>
-                        <a href="{{ action('OrderController@getOrders', ['id' => auth()->user()->id]) }}">My Orders</a>
-                    </li>
-                    <li>
-                        <a href="{{ action('CartController@index') }}">Basket</a>
-                    </li>
-                    <li>
-                        <a href="{{ action('HomeController@logout') }}">Log Out</a>
-                    </li>
+                    <li><a href="{{ action('GalleryImageController@index') }}">Gallery</a></li>
+                    <li><a href="{{ action('CartController@index') }}">Basket</a></li>
+                    <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            @if(Auth::check() && Auth::user()->isAdmin())
+                            <li><a href="{{ action('ProductController@getTrashed') }}">Soft Deletes</a></li>
+                            <li><a href="/userreg">Make User</a></li>
+                            <li role="separator" class="divider"></li>                       
+                            @endif
+                            <li><a href="{{ action('OrderController@getOrders', ['id' => auth()->user()->id]) }}">My Orders</a></li>
+                            <li><a href="{{ action('HomeController@logout') }}">Log Out</a></li>
+                          </ul>
+                        </li>
                     @endif
             </ul>
         </div>
