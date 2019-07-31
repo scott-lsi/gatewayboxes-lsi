@@ -36,6 +36,12 @@ $(document).ready(function () {
             setTimeout(delay, $('#product-main-image').css('backgroundImage', 'url(' + imgSrc + ')').css('backgroundSize', 'cover'));
         });
     });
+
+    // lightbox (https://ashleydw.github.io/lightbox/)
+    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
 });
 
 // ...but not on mobile

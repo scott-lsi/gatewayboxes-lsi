@@ -10,3 +10,68 @@
 @import "~font-awesome/scss/font-awesome";
 @import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 
+// lightbox
+@import url("https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css");
+
+
+.box {
+    position: relative;
+
+    img {
+        max-width: 100%;
+        
+        &.thumbnail {
+            margin-bottom: 0;
+        }
+    }
+
+    .title-box {
+        position: absolute;
+        top: 0px;
+        left: 15px;
+        bottom: 0px;
+        right: 15px;
+        background: rgba(0,0,0,.7);
+        transform: scaleY(0);
+        transition: transform .5s ease-in-out;
+
+        .title {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 15px;
+            color: $brand-primary;
+            width: 100%;
+            text-align: center;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                background: $brand-primary;
+                width: 0;
+                height: 3px;
+                bottom: 5%;
+                left: 50%
+                transform: translate(-50%, -50%);
+                transition: width .5s ease-in-out;
+            }
+
+            &:hover:after {
+                width: 40%;
+            }
+        }
+    }
+
+    &:hover .title-box {
+        transform: scaleY(1);
+    }
+}
+
+
+
+@media (min-width: 768px) {
+    .modal-dialog {
+      width: auto;
+    }
+}

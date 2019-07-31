@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-sm-4">
             <h1>{{ config('app.name', 'Personaliser') }}</h1>
-            <h3 class="text-muted">You are logged in.</h3>
+            <!-- <h3 class="text-muted">You are logged in.</h3> -->
         </div>
         <div class="col-sm-8 text-right">
             <p class="lead">Oliver: <span class="text-primary">01274 854963</span><br>Dan: <span class="text-primary">01274 854977</span><br>Email: <span class="text-primary">sales@thinkinsidethebox.online</span></p>

@@ -28,6 +28,7 @@ Route::get('/products/{type}', 'ProductController@getProductsByType');
 Route::resource('product', 'ProductController');
 Route::get('product/personaliser/{id}/{gatewaymulti?}', 'ProductController@personaliser');
 Route::get('productepa/{id?}', 'ProductController@getExternalPricingAPI');
+Route::get('image-gallery', 'GalleryImageController@index');
 
 Route::get('basket', 'CartController@index');
 Route::post('basket/add/{gatewaymulti?}', 'CartController@add');

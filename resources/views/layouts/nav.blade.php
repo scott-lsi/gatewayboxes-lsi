@@ -71,6 +71,9 @@
                     </li>
                     @else
                     <li>
+                        <a href="{{ action('GalleryImageController@index', ['id' => auth()->user()->id]) }}">Gallery</a>
+                    </li>
+                    <li>
                         <a href="{{ action('OrderController@getOrders', ['id' => auth()->user()->id]) }}">My Orders</a>
                     </li>
                     <li>
