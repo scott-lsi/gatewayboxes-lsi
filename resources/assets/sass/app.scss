@@ -31,7 +31,7 @@
         left: 15px;
         bottom: 0px;
         right: 15px;
-        background: rgba(0,0,0,.7);
+        background: rgba(96, 0, 51, 0.7);
         transform: scaleY(0);
         transition: transform .5s ease-in-out;
 
@@ -40,7 +40,7 @@
             top: 50%;
             transform: translateY(-50%);
             padding: 0 15px;
-            color: $brand-primary;
+            color: #fff;
             width: 100%;
             text-align: center;
 
@@ -48,21 +48,20 @@
                 content: '';
                 display: block;
                 position: absolute;
-                background: $brand-primary;
+                background: #fff;
                 width: 0;
                 height: 3px;
                 bottom: 5%;
-                left: 50%
+                left: 50%;
                 transform: translate(-50%, -50%);
                 transition: width .5s ease-in-out;
-            }
-
-            &:hover:after {
-                width: 40%;
+                transition-delay: .5s;
             }
         }
     }
-
+    &:hover .title-box .title:after {
+        width: 40%;
+    }
     &:hover .title-box {
         transform: scaleY(1);
     }

@@ -31950,7 +31950,7 @@ enquire.register("screen and (max-width:974px)", function () {
 /* 37 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n                transform: translate(-50%, -50%);\r\n               ^\r\n      Invalid CSS after \"...      transform\": expected \"}\", was \": translate(-50%, -\"\r\n      in C:\\Homestead_Projects\\gatewayboxes-lsi\\resources\\assets\\sass\\app.scss (line 56, column 17)\n    at runLoaders (C:\\Homestead_Projects\\gatewayboxes-lsi\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at C:\\Homestead_Projects\\gatewayboxes-lsi\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\Homestead_Projects\\gatewayboxes-lsi\\node_modules\\loader-runner\\lib\\LoaderRunner.js:230:18\n    at context.callback (C:\\Homestead_Projects\\gatewayboxes-lsi\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (C:\\Homestead_Projects\\gatewayboxes-lsi\\node_modules\\sass-loader\\lib\\loader.js:55:13)\n    at Object.done [as callback] (C:\\Homestead_Projects\\gatewayboxes-lsi\\node_modules\\neo-async\\async.js:7974:18)\n    at options.error (C:\\Homestead_Projects\\gatewayboxes-lsi\\node_modules\\node-sass\\lib\\index.js:294:32)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

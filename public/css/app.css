@@ -11427,7 +11427,7 @@ button.close {
   left: 15px;
   bottom: 0px;
   right: 15px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(96, 0, 51, 0.7);
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
   -webkit-transition: -webkit-transform .5s ease-in-out;
@@ -11442,7 +11442,7 @@ button.close {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   padding: 0 15px;
-  color: #EC008C;
+  color: #fff;
   width: 100%;
   text-align: center;
 }
@@ -11451,20 +11451,20 @@ button.close {
   content: '';
   display: block;
   position: absolute;
+  background: #fff;
   width: 0;
   height: 3px;
-  background: #EC008C;
   bottom: 5%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   -webkit-transition: width .5s ease-in-out;
   transition: width .5s ease-in-out;
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
 }
 
-.box .title-box .title:hover:after {
+.box:hover .title-box .title:after {
   width: 40%;
 }
 
