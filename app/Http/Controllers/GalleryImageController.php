@@ -11,7 +11,7 @@ class GalleryImageController extends Controller
     // Listing of images gallery
     public function index()
     {
-        $images = DB::table('gallery_images')->orderBy('updated_at', 'desc')->simplePaginate(8);
+        $images = DB::table('gallery_images')->orderBy('updated_at', 'desc')->simplePaginate(12);
 
         return view('image-gallery',compact('images'));
     }
