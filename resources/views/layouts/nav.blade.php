@@ -34,13 +34,13 @@
                     <li><a href="{{ action('ProductController@getProductsByType', 'Boxes') }}">All Boxes</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Midi Box</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxOne') }}">Gift Box 1</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxThree') }}">Gift Box 3</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxFour') }}">Gift Box 4</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxFive') }}">Gift Box 5</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxSix') }}">Gift Box 6</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxSeven') }}">Gift Box 7</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxEight') }}">Gift Box 8</a></li>
+                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxOne') }}">Trade Box 1</a></li>
+                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxThree') }}">Trade Box 3</a></li>
+                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxFour') }}">Trade Box 4</a></li>
+                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxFive') }}">Trade Box 5</a></li>
+                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxSix') }}">Trade Box 6</a></li>
+                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxSeven') }}">Trade Box 7</a></li>
+                    <li><a href="{{ action('ProductController@getProductsByType', 'giftBoxEight') }}">Trade Box 8</a></li>
                     </ul>
                 </li>
 
