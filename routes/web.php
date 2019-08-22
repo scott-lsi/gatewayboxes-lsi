@@ -19,8 +19,14 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
 Route::get('/export', 'ExportController@exportOrders');
 
-Route::view('userreg', 'users/userreg');
+Route::get('userreg', 'UsersController@create');
 Route::post('userreg', 'UsersController@store');
+Route::get('/users/{companyid}', 'UsersController@index');
+Route::get('/users/{userid}/edit', 'UsersController@edit');
+Route::get('users/user/{user}', 'UsersController@show');
+Route::get('users/user/{user}/edit', 'UsersController@edit');
+Route::post('users/user/{user}', 'UsersController@update');
+Route::post('users/user/{user}/delete', 'UsersController@destroy');
 
 Route::get('/products', 'ProductController@index');
 Route::get('/products/trashed', 'ProductController@getTrashed');

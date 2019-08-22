@@ -68,8 +68,9 @@
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
                           <ul class="dropdown-menu">
                             @if(Auth::check() && Auth::user()->isAdmin())
-                            <li><a href="{{ action('ProductController@getTrashed') }}">Soft Deletes</a></li>
-                            <li><a href="/userreg">Make User</a></li>
+                            <li><a href="{{ action('UsersController@index', ['id' => auth()->user()->company_id]) }}">Manage Users</a></li>
+                            <!-- <li><a href="{{ action('ProductController@getTrashed') }}">Soft Deletes</a></li> -->
+                            <!-- <li><a href="/userreg">Make User</a></li> -->
                             <li role="separator" class="divider"></li>                       
                             @endif
                             <li><a href="{{ action('OrderController@getOrders', ['id' => auth()->user()->id]) }}">My Orders</a></li>

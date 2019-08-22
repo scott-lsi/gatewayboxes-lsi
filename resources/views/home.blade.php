@@ -21,11 +21,13 @@
         <div class="col-sm-2">
             <img src="{{ asset('images/homepage/welcome.jpg') }}" style="width: 150px;" alt="Welcome">
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-10 text-center">
             <p style="font-size: 16px;">
-            Welcome to your very own bespoke box portal for sampling purposes. 
+            Welcome to your very own bespoke box portal for sampling purposes.
+            <br>
             Here you can create bespoke boxes featuring your prospective clients logo or design. 
-            Once created add to cart and we will print and dispatch within 3 days.
+            This is done using our online designer, which allows you to live edit the box, making the process simple and efficient. 
+            Once you have created your sample box, add it to the cart and we will print and dispatch your order within 3 days.
             </p>
         </div>
     </div>
