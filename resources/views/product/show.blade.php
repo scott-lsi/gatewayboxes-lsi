@@ -40,7 +40,7 @@
             
             <p>£{{ $product->price }}</p>
             <p>Cost is per item (delivery charges not included)</p>
-            <p>Foam inlay and products sold separately</p>
+            <p>Foam inlay and products sold separately</p>  
             
             @if($product->gateway)
             <p>You may personalise this product</p>
