@@ -62,19 +62,17 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="container">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">First Impressions</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Bespoke boxes are a fantastic way to add value to yours or your clients merchandise/giveaways. 
-                        Gift boxes are used currently for product launches, onboarding gifts, thankyou and commemorative gifts. 
-                        Help your customers stay ahead of their competition and create a positive first impression.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">First Impressions</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Bespoke boxes are a fantastic way to add value to yours or your clients merchandise/giveaways. 
+                    Gift boxes are used currently for product launches, onboarding gifts, thankyou and commemorative gifts. 
+                    Help your customers stay ahead of their competition and create a positive first impression.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -82,22 +80,19 @@
 
     <div id="modal-hl" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="container">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Help Line</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Once you have gained your clients interest in the product and discussed what products may feature in the box,
-                        please call <strong class="text-primary">Dan on 01274 854977</strong> or <strong class="text-primary">Oliver on 01274 854963</strong> for help and advice. They will guide you through the process
-                        of housing products in the box and provide layout designs free of cost.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Help Line</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Once you have gained your clients interest in the product and discussed what products may feature in the box,
+                    please call <strong class="text-primary">Dan on 01274 854977</strong> or <strong class="text-primary">Oliver on 01274 854963</strong> for help and advice. They will guide you through the process
+                    of housing products in the box and provide layout designs free of cost.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -108,27 +103,25 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="container">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Terms of Use</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            As a new user your first 10 box designs are free of charge. Following that we will invoice you monthly for any box
-                            designs you order via the portal (Payment terms are 30 days nett of month end). Late payment of invoices will result in your
-                            access to the portal being suspended.<br>
-                            Boxes are limited to 1 box 1 design - should you require more than 1 box for your chosen design, you just speak to 
-                            Dan or Oliver who can help.
-                        </p>
-                        <p>
-                            Once your client is happy with the proposed layout, should you wish to see a finished sample with foam inlay this laser
-                            sample is charged at £25, any subsequent changes to the layout and further samples will be charged at £15 each.
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Terms of Use</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        As a new user your first 10 box designs are free of charge. Following that we will invoice you monthly for any box
+                        designs you order via the portal (Payment terms are 30 days nett of month end). Late payment of invoices will result in your
+                        access to the portal being suspended.<br>
+                        Boxes are limited to 1 box 1 design - should you require more than 1 box for your chosen design, you just speak to 
+                        Dan or Oliver who can help.
+                    </p>
+                    <p>
+                        Once your client is happy with the proposed layout, should you wish to see a finished sample with foam inlay this laser
+                        sample is charged at £25, any subsequent changes to the layout and further samples will be charged at £15 each.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
