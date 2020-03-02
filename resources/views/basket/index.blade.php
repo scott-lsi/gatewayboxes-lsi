@@ -83,27 +83,20 @@
                         
                         {!! Form::hidden('user_id', auth()->user()->id) !!}
                         {!! Form::hidden('name', auth()->user()->name) !!}
+                        {!! Form::hidden('compname', auth()->user()->company->company) !!}
 
                         <div class="form-group">
                             <label for="jobref">Job Reference *</label>
                             {!! Form::text('jobref', null, ['class' => 'form-control', 'id' => 'jobref', 'required']) !!}
                         </div>
-
                         <div class="form-group">
                             <label for="email">Your Email Address *</label>
                             {!! Form::text('email', auth()->user()->email, ['class' => 'form-control', 'id' => 'email', 'required']) !!}
                         </div>
-
-                        <div class="form-group">
-                            <label for="compname">Company Name *</label>
-                            {!! Form::text('compname', null, ['class' => 'form-control', 'id' => 'compname', 'required']) !!}
-                        </div>
-
                         <div class="form-group">
                             <label for="telenum">Telephone Number *</label>
                             {!! Form::text('telenum', null, ['class' => 'form-control', 'id' => 'telenum', 'required']) !!}
                         </div>
-
                         <p for="email"><u>Address</u></p>
                         <div class="form-group">
                             <label for="addline1">Address Line 1 *</label>

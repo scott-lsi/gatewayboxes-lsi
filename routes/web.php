@@ -35,6 +35,15 @@ Route::resource('product', 'ProductController');
 Route::get('product/personaliser/{id}/{gatewaymulti?}', 'ProductController@personaliser');
 Route::get('productepa/{id?}', 'ProductController@getExternalPricingAPI');
 Route::get('image-gallery', 'GalleryImageController@index');
+Route::get('terms', 'TermController@index');
+
+// Credit App
+Route::get('credit', 'CreditController@index');
+Route::post('credit', 'CreditController@postCreditApp');
+
+// Contact Us
+Route::get('contact', 'ContactController@index');
+Route::post('contact', 'ContactController@postContactUs');
 
 Route::get('basket', 'CartController@index');
 Route::post('basket/add/{gatewaymulti?}', 'CartController@add');

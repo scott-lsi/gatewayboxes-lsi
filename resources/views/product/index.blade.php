@@ -3,9 +3,24 @@
 @section('content')
 
 <div class="container">
-    <h1>All Products</h1>
-    <h4>Length x Width x Depth</h4>
-    
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>All Products</h1>
+            <h4>Length x Width x Depth</h4>
+        </div>
+        <div class="col-sm-6">
+            <h4 class="text-right">Free Orders: 
+                <?php 
+                if($companyOrders <= 0) {
+                    echo "0";
+                } else {
+                    echo "$companyOrders remaining";
+                }?>
+            </h4>
+        </div>
+    </div>
+
     <hr>
     
     <div class="row">

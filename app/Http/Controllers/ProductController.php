@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Company;
 
 class ProductController extends Controller
 {
@@ -16,8 +17,27 @@ class ProductController extends Controller
     {
         $products = Product::active()->get();
 
+        $companyOrders = Company::find(auth()->user()->company_id)->orders->count();
+        $freeOrders = 10;
+        $companyOrders = $freeOrders - $companyOrders;
+
+        //$rob = \App\User::find(2); // company id 3. user rob has placed 47 orders so company 3 has 47 orders
+        //$companyOrders = Company::find($rob->company_id)->orders->count();
+        //$scott = \App\User::find(4); // company id 1. user scott has placed 0 orders so company 1 has 0 orders
+        //$companyOrders = Company::find($scott->company_id)->orders->count();
+        //$realtest = \App\User::find(27); // company id 2. user realtest has placed 1 order so company 2 has 1 order
+        // $companyOrders = Company::find($realtest->company_id)->orders->count();
+        
+        
+        // if($companyOrders <= 0) {
+        //     dd('No free orders left - $companyOrders is ' . $companyOrders);
+        // } else {
+        //     dd('You have ' . $companyOrders . ' free orders remaining - $companyOrders is ' . $companyOrders);
+        // }
+
         return view('product.index', [
-           'products' => $products,
+            'products' => $products,
+            'companyOrders' => $companyOrders,
         ]);
     }
 
@@ -40,8 +60,8 @@ class ProductController extends Controller
         $title = $this->camelToNice($type);
 
         return view('product.productcat', [
-           'products' => $products,
-           'title' => $title,
+            'products' => $products,
+            'title' => $title,
         ]);
     }
 
@@ -50,7 +70,7 @@ class ProductController extends Controller
         $nbProducts = Product::where('category', 'like', '%%' . $cat . '%%')->orderBy('name')->get();
         
         return view('product.notebooks', [
-           'nbProducts' => $nbProducts,
+            'nbProducts' => $nbProducts,
         ]);
     }*/
 
@@ -105,8 +125,8 @@ class ProductController extends Controller
         $mobileUrl .= '&ep3dUrl=' . action('CartController@add');
         
         return view('product.show', [
-           'product' => $product,
-           'mobileUrl' => $mobileUrl,
+            'product' => $product,
+            'mobileUrl' => $mobileUrl,
         ]);
     }
 

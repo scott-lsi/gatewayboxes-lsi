@@ -32,7 +32,7 @@ class ExportController extends Controller
                 $total = $total + $row['subtotal'];
             }
             
-            // build the order row and push onbto the array
+            // build the order row and push onto the array
             $thisorder = [
                 'orderid' => $order->id,
                 'placed_by' => $order->name,
@@ -45,7 +45,7 @@ class ExportController extends Controller
             
             foreach($basket as $row){
                 $thisproduct = [
-                    'orderid' => $order->orderid,
+                    'orderid' => $order->id,
                     'placed_by' => $order->name,
                     'company_name' => $order->compname,
                     'date' => $order->created_at,

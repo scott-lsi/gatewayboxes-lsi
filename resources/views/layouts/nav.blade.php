@@ -31,16 +31,16 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boxes<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                    <li><a href="{{ action('ProductController@getProductsByType', 'Boxes') }}">All Boxes</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Midi Box</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxOne') }}">Trade Box 1</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxThree') }}">Trade Box 3</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxFour') }}">Trade Box 4</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxFive') }}">Trade Box 5</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxSix') }}">Trade Box 6</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxSeven') }}">Trade Box 7</a></li>
-                    <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxEight') }}">Trade Box 8</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'Boxes') }}">All Boxes</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'midiBoxes') }}">Midi Box</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxOne') }}">Trade Box 1</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxThree') }}">Trade Box 3</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxFour') }}">Trade Box 4</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxFive') }}">Trade Box 5</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxSix') }}">Trade Box 6</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxSeven') }}">Trade Box 7</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxEight') }}">Trade Box 8</a></li>
                     </ul>
                 </li>
 
@@ -71,9 +71,14 @@
                             <li><a href="{{ action('UsersController@index', ['id' => auth()->user()->company_id]) }}">Manage Users</a></li>
                             <!-- <li><a href="{{ action('ProductController@getTrashed') }}">Soft Deletes</a></li> -->
                             <!-- <li><a href="/userreg">Make User</a></li> -->
-                            <li role="separator" class="divider"></li>                       
+                                                   
                             @endif
                             <li><a href="{{ action('OrderController@getOrders', ['id' => auth()->user()->id]) }}">My Orders</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ action('ContactController@index') }}">Contact Page</a></li>
+                            <li><a href="{{ action('TermController@index') }}">Terms and Conditions</a></li>
+                            <li><a href="{{ action('CreditController@index') }}">Credit Application Form</a></li>
+                            <li role="separator" class="divider"></li>
                             <li><a href="{{ action('HomeController@logout') }}">Log Out</a></li>
                           </ul>
                         </li>

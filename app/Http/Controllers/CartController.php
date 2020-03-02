@@ -206,8 +206,11 @@ class CartController extends Controller
 			'shipping_address_1' =>	$request->input('addline1'),
 			'shipping_address_2' =>	$request->input('addline2'),
 			'shipping_address_3' =>	$request->input('city'),
-			'shipping_address_4' =>	$request->input('county'),
-			'shipping_address_5' =>	$request->input('jobref'),
+            'shipping_address_4' =>	$request->input('county'),
+            // Removed the jobref as this was going through to gateway as one of the shipping adresses
+            // and in turn this meant was pulling through on the dispatch note. Maybe look at another field?
+            // 'shipping_address_5' =>	$request->input('jobref'),
+            'shipping_address_5' =>	'',
 			'shipping_postcode' => $request->input('postcode'),
 			'shipping_country' => '',
 			'shipping_country_code' => 'GB',
