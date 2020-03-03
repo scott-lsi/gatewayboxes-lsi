@@ -3,21 +3,21 @@
 @section('content')
 
 <div class="container">
-    <h2>Terms and Conditions</h2>
+    <h2>LSi Ltd: Bespoke Boxes Standard Terms and Conditions and General Trading Information</h2>
     <p>OUR TERMS</p>
 
     <p>1. – THESE TERMS</p>
 
     <p>1.1 –&nbsp;<strong>What these terms cover.</strong>&nbsp;These are the terms and conditions on which we supply products to you.</p>
 
-    <p>1.2 –&nbsp;<strong>Why you should read them.</strong>&nbsp;These terms and conditions apply to anyone placing an order on our website, www.personalisedpowerbank.co.uk. Please read these terms carefully before you submit your order to us. These terms tell you who we are, how we will provide products to you, how you and we may change or end the contract, what to do if there is a problem and other important information.
+    <p>1.2 –&nbsp;<strong>Why you should read them.</strong>&nbsp;These terms and conditions apply to anyone placing an order on our website, www.thinkinsidethebox.online. Please read these terms carefully before you submit your order to us. These terms tell you who we are, how we will provide products to you, how you and we may change or end the contract, what to do if there is a problem and other important information.
     </p>
 
     <p>2. – INFORMATION ABOUT US AND HOW TO CONTACT US</p>
 
-    <p>2.1 –&nbsp;<strong>Who we are.</strong>&nbsp;We are Lloyd Simpson Incentives Limited (trading as LSi Ltd or LSi), a company registered in England and Wales. Our company registration number is 02991695 and our registered office is at Braemar House, Snelsins Road, Cleckheaton, West Yorkshire, BD19 3UE. Our registered VAT number is 640587334. Personalisedpowerbank.co.uk is a website wholly owned and managed by LSi.</p>
+    <p>2.1 –&nbsp;<strong>Who we are.</strong>&nbsp;Bespoke Boxes is a trading division of Lloyd Simpson Incentives Limited (trading as LSi Ltd or LSi), a company registered in England and Wales. Our company registration number is 02991695 and our registered office is at Braemar House, Snelsins Road, Cleckheaton, West Yorkshire, BD19 3UE. Our registered VAT number is 640587334. Thinkinsidethebox.online is a website wholly owned and managed by LSi.</p>
 
-    <p>2.2 –&nbsp;<strong>How to contact us.</strong>&nbsp;You can contact us by telephoning our customer service team at 01274 854990 or by writing to us at info@personalisedpowerbank.co.uk or at the postal address above.</p>
+    <p>2.2 –&nbsp;<strong>How to contact us.</strong>&nbsp;You can contact us by telephoning our customer service team at 01274 854977/854963 or by writing to us at dan@thinkinsidethebox.online or oliver@thinkinsidethebox.online or at the postal address above.</p>
 
     <p>2.3 –&nbsp;<strong>How we may contact you.</strong>&nbsp;If we have to contact you we will do so by telephone or by writing to you at the email address or postal address you provided to us in your order.</p>
 
@@ -110,9 +110,9 @@
 
     <p>9.1 –&nbsp;<strong>Tell us you want to end the contract.</strong>&nbsp;To end the contract with us for any of the reasons listed at clause 8, please let us know by doing one of the following:</p>
 
-    <p>(a) –&nbsp;<strong>Phone or email.</strong>&nbsp;Call customer services on 01274 854990 or email us at info@personalisedpowerbank.co.uk.Please provide your name, home address, details of the order and, where available, your phone number and email address.<br> (b) –&nbsp;<strong>Online.</strong>&nbsp;Complete the form at www.personalisedpowerbank.co.uk/#contact-slide on our website.</p>
+    <p>(a) –&nbsp;<strong>Phone or email.</strong>&nbsp;Call customer services on 01274 854963/854977 or email us at dan@thinkinsidethebox.online or oliver@thinkinsidethebox.online. Please provide your name, home address, details of the order and, where available, your phone number and email address.<br> (b) –&nbsp;<strong>Online.</strong>&nbsp;Complete the form at www.thinkinsidethebox.online/contact on our website.</p>
 
-    <p>9.2 –&nbsp;<strong>Returning products that are faulty.</strong>&nbsp;If you receive a faulty product you should inform customer services on 01274 854990 or email us at info@personalisedpowerbank.co.uk as soon as possible so that we can discuss the fault and explore what can be done. For visual faults, we will require photographic evidence of the faulty product. If appropriate, you will be given full instructions on how to return a faulty product.</p>
+    <p>9.2 –&nbsp;<strong>Returning products that are faulty.</strong>&nbsp;If you receive a faulty product you should inform customer services on 01274 854963/854977 or email us at dan@thinkinsidethebox.online or oliver@thinkinsidethebox.online as soon as possible so that we can discuss the fault and explore what can be done. For visual faults, we will require photographic evidence of the faulty product. If appropriate, you will be given full instructions on how to return a faulty product.</p>
 
     <p>9.3 –&nbsp;<strong>How we will refund you.</strong>&nbsp;We will refund you the price you paid for the products including delivery costs, by the method you used for payment. However, we may make deductions from the price, as described at clause 8.5.</p>
 
@@ -134,7 +134,7 @@
 
     <p>11. – IF THERE IS A PROBLEM WITH THE PRODUCT</p>
 
-    <p><strong>How to tell us about problems.</strong>&nbsp;If you have any questions or complaints about the product, please contact us. You can telephone our customer service team at 01274 854990 or email us at info@personalisedpowerbank.co.uk. Please see clause 9.2 above for further information and guidance.</p>
+    <p><strong>How to tell us about problems.</strong>&nbsp;If you have any questions or complaints about the product, please contact us. You can telephone our customer service team at 01274 854962/854977 or email us at dan@thinkinsidethebox.online or oliver@thinkinsidethebox.online. Please see clause 9.2 above for further information and guidance.</p>
 
     <p>11.1 – Summary of your legal rights. We are under a legal duty to supply products that are in conformity with this contract. See the box below for a summary of your key legal rights in relation to the product. Nothing in these terms will affect your legal rights.
     </p>
@@ -151,11 +151,9 @@
 
     <p>12.3 –&nbsp;<strong>What happens if we got the price wrong.</strong>&nbsp;It is always possible that, despite our best efforts, some of the products we sell may be incorrectly priced. We will normally check prices before accepting your order so that, where the product’s correct price at your order date is less than our stated price at your order date, we will charge the lower amount. If the product’s correct price at your order date is higher than the price stated to you, we will contact you for your instructions before we accept your order.</p>
 
-    <p>12.4 –&nbsp;<strong>When you must pay and how you must pay.</strong>&nbsp;We accept payment with Visa, Visa Debit or Mastercard.</p>
+    <p>12.4 –&nbsp;<strong>When you must pay and how you must pay.</strong>&nbsp;We accept payment with Visa, Visa Debit or Mastercard. For approved credit account our payment terms are 30 days from date of invoice.</p>
 
-    <p>You must pay for the products before we dispatch them. We will charge your credit or debit card at the time we accept your order.</p>
-
-    <p>12.5 – What to do if you think your payment receipt is wrong<strong>. If you think your payment receipt is wrong please contact us promptly to let us know at 01274 854990 or email us at info@personalisedpowerbank.co.uk.</strong> </p>
+    <p>12.5 – What to do if you think your payment receipt is wrong<strong>. If you think your payment receipt is wrong please contact us promptly to let us know at 01274 854963/854977 or email us at dan@thinkinsidethebox.online or oliver@thinkinsidethebox.online.</strong> </p>
 
     <p>13. – OUR RESPONSIBILITY FOR LOSS OR DAMAGE SUFFERED BY YOU</p>
 
