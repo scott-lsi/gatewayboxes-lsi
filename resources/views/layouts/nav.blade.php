@@ -53,6 +53,10 @@
                 <li>
                     <a href="{{ action('ProductController@getProductsByType', 'Powerbank Boxes') }}">Powerbank Boxes</a>
                 </li>
+
+                <li>
+                    <a href="{{ action('ProductController@getProductsByType', 'Technology') }}">Technology</a>
+                </li>
                 @endif
             </ul>
 
