@@ -227,8 +227,7 @@
 
     <div class="text-center">
         <p>
-            All first orders are dealt with on a pro-forma basis.<br>
-            Subject to a satisfactory credit check, credit terms are strictly 30 days from date of invoice.
+            Subject to a satisfactory credit check, credit terms are strictly agreed Page terms.
         </p>
         
         <p>By submitting this form, the person named beneath states that all the above information is true and agrees to abide by LSi's terms &amp; conditions.</p>

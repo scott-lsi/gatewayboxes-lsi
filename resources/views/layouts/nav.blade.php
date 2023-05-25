@@ -40,18 +40,10 @@
                         <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxFive') }}">Trade Box 5</a></li>
                         <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxSix') }}">Trade Box 6</a></li>
                         <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxSeven') }}">Trade Box 7</a></li>
-                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxEight') }}">Trade Box 8</a></li>
+                        <li><a href="{{ action('ProductController@getProductsByType', 'tradeBoxNine') }}">Trade Box 9</a></li>
                         <li><a href="{{ action('ProductController@getProductsByType', 'a5Box') }}">A5 Box</a></li>
                         <li><a href="{{ action('ProductController@getProductsByType', 'a6Box') }}">A6 Box</a></li>
                     </ul>
-                </li>
-
-                <li>
-                    <a href="{{ action('ProductController@getProductsByType', 'Intro Boxes') }}">Intro Boxes</a>
-                </li>
-
-                <li>
-                    <a href="{{ action('ProductController@getProductsByType', 'Powerbank Boxes') }}">Powerbank Boxes</a>
                 </li>
 
                 <li>
