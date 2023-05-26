@@ -39,9 +39,12 @@
             {!! $product->description !!}
             
             <p>£{{ $product->price }}</p>
-            <p>Cost is per item (delivery charges not included)</p>
-            <p>Foam inlay and products sold separately</p>  
-            
+            <p>Cost is per item (delivery charge included)</p>
+
+            @if($product->category != 'Technology')
+            <p>Foam inlay and products sold separately</p>
+            @endif
+
             @if($product->gateway)
             <p>You may personalise this product</p>
             
