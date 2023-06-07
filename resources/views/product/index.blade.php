@@ -10,12 +10,12 @@
             <h4>Length x Width x Depth</h4>
         </div>
         <div class="col-sm-6">
-            <h4 class="text-right">Free Orders: 
+            <h4 class="text-right">Free Products Remaining:
                 <?php 
                 if($companyOrders <= 0) {
                     echo "0";
                 } else {
-                    echo "$companyOrders remaining";
+                    echo $companyOrders;
                 }?>
             </h4>
         </div>
