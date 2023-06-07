@@ -6,15 +6,36 @@ use Illuminate\Http\Request;
 use Cart;
 use App\Product;
 use App\Order;
+use App\Company;
 
 class CartController extends Controller
 {
     public function index(){
         $basket = Cart::content();
+
+        $companyOrders = Company::find(auth()->user()->company_id)->orders->count();
+        $freeOrders = 10;
+        $companyOrders = $freeOrders - $companyOrders;
+
+        $basket_quantity_total = 0;
+        foreach($basket as $row){
+            $basket_quantity_total += $row->qty;
+        }
+
+        $free_orders_remaining = $companyOrders - $basket_quantity_total;
+
+        $free_items = $basket->sortByDesc('price')->take($companyOrders);
+        $free_item_value = 0;
+        foreach($free_items as $row){
+            $free_item_value += $row->price;
+        }
+
         // dd($basket);
         return view('basket.index', [
             'basket' => $basket,
             'countries' => \App\Country::orderBy('langEN')->pluck('langEN', 'alpha2'),
+            'companyOrders' => $companyOrders,
+            'free_orders_remaining' => $free_orders_remaining,
         ]);
 
         

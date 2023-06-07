@@ -85,4 +85,32 @@ class UsersController extends Controller
 
         return redirect('users/' . $user->company_id)->with('message', 'You Successfully Deleted a User.');
     }
+
+    public function createNew()
+    {
+        $user = new User();
+
+        return view('users.create', [
+            'user' => $user
+        ]);
+
+    }
+
+    protected function storeNew()
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $user = User::create(request(['name','email','password']));
+
+        $user->company_id = auth()->user()->company_id;
+
+        $user->save();
+
+        return redirect()->to('users/' . $user->company_id)->with('message', 'You Successfully Created a New User.');
+        
+    }
 }

@@ -20,6 +20,13 @@
     
     <div class="row">
         <div class="col-md-9">
+            <h4>
+                @if($companyOrders <= 0)
+                fjklfd
+                @else
+                    Free Products Remaining: {{ $companyOrders }} ({{ $free_orders_remaining }} including what's in the basket...)
+                @endif
+            </h4>
             <table class="table">
                 <thead>
                     <tr>
@@ -29,6 +36,14 @@
                 </thead>
                 <tbody>
                     @foreach($basket as $row)
+                    <?php 
+                    if($loop->iteration <= $companyOrders) {
+
+                    }
+                    else {
+                        echo "Free Products Remaining: $companyOrders";
+                    }?>
+
                     <tr>
                         <td><img src="{{ $row->options->imageurl }}" alt="{{ $row->name }}" class="img-responsive"></td>
                         <td>
