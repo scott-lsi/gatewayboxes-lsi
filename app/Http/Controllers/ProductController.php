@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Company;
+use App\User;
 
 class ProductController extends Controller
 {
@@ -16,11 +17,10 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::active()->get();
+        $company_id = auth()->user()->company_id;
 
-        $companyOrders = Company::find(auth()->user()->company_id)->orders->count();
-        $freeOrders = 10;
-        $companyOrders = $freeOrders - $companyOrders;
-
+        $freeBudget = Company::where('id', auth()->user()->company_id)->value('free_budget');
+        
         //$rob = \App\User::find(2); // company id 3. user rob has placed 47 orders so company 3 has 47 orders
         //$companyOrders = Company::find($rob->company_id)->orders->count();
         //$scott = \App\User::find(4); // company id 1. user scott has placed 0 orders so company 1 has 0 orders
@@ -37,7 +37,7 @@ class ProductController extends Controller
 
         return view('product.index', [
             'products' => $products,
-            'companyOrders' => $companyOrders,
+            'freeBudget' => $freeBudget,
         ]);
     }
 

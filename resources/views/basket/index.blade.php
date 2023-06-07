@@ -21,10 +21,9 @@
     <div class="row">
         <div class="col-md-9">
             <h4>
-                @if($companyOrders <= 0)
-                fjklfd
+                @if($freeBudget <= 0)
                 @else
-                    Free Products Remaining: {{ $companyOrders }} ({{ $free_orders_remaining }} including what's in the basket...)
+                    Free Budget Remaining: £{{ $freeBudget }}
                 @endif
             </h4>
             <table class="table">
@@ -36,13 +35,6 @@
                 </thead>
                 <tbody>
                     @foreach($basket as $row)
-                    <?php 
-                    if($loop->iteration <= $companyOrders) {
-
-                    }
-                    else {
-                        echo "Free Products Remaining: $companyOrders";
-                    }?>
 
                     <tr>
                         <td><img src="{{ $row->options->imageurl }}" alt="{{ $row->name }}" class="img-responsive"></td>
@@ -64,8 +56,8 @@
                             </p>
                             @endif
 
-                            <p><strong>Price:</strong> £{{ number_format($row->price,2) }}</p>
-                            <!-- <p><strong>Total:</strong> £{{ $row->price * $row->qty }}</p>
+                            <p><strong>Price:</strong> £{{ number_format($row->price,2) }} Each</p>
+                            <p><strong>Total:</strong> £{{ $row->price * $row->qty }}</p>
                             
                             {!! Form::open(['action' => ['CartController@postUpdateQty', $row->rowId]]) !!}
                             <div class="row">
@@ -77,7 +69,7 @@
                                     {!! Form::submit('Update Qty', ['class' => 'btn btn-primary btn-sm']) !!}
                                 </div>
                             </div>
-                            {!! Form::close() !!} -->
+                            {!! Form::close() !!}
                             
                             <p><small><a href="{{ action('CartController@getRemoveItem', ['rowId' => $row->rowId]) }}">Remove</a></small></p>
                         </td>
@@ -85,8 +77,12 @@
                     @endforeach
                 </tbody>
             </table>
-            <!-- Subtotal shown at the end of cart -->
-            <div class="h3">Subtotal: £{{ Cart::total() }}</div>
+            <!-- Subtotal shown at the end of cart if above 0-->
+            @if ($cartTotal <= 0)
+                <div class="h3">Subtotal: £0.00</div>
+            @else
+                <div class="h3">Subtotal: £{{ $cartTotal }}</div>
+            @endif
         </div>
         
         <div class="col-md-3">
@@ -134,7 +130,12 @@
                             {!! Form::text('county', null, ['class' => 'form-control', 'id' => 'county']) !!}
                         </div>
                         
-                        <h3>Subtotal: £{{ Cart::total() }}</h3>
+                        @if ($cartTotal <= 0)
+                            <div class="h3">Total: £0.00</div>
+                        @else
+                            <div class="h3">Total: £{{ $cartTotal }}</div>
+                        @endif
+
                         {!! Form::submit('Send To Print', ['class' => 'btn btn-block btn-primary']) !!}
                         
                     {!! Form::close() !!}
