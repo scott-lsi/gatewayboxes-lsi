@@ -7,35 +7,38 @@ use Cart;
 use App\Product;
 use App\Order;
 use App\Company;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
     public function index(){
         $basket = Cart::content();
 
-        $companyOrders = Company::find(auth()->user()->company_id)->orders->count();
-        $freeOrders = 10;
-        $companyOrders = $freeOrders - $companyOrders;
+        $company_id = auth()->user()->company_id;
+        $freeBudget = Company::where('id', auth()->user()->company_id)->value('free_budget');
 
-        $basket_quantity_total = 0;
-        foreach($basket as $row){
-            $basket_quantity_total += $row->qty;
-        }
+        $subtotal = Cart::total();
 
-        $free_orders_remaining = $companyOrders - $basket_quantity_total;
+        $cartTotal = $subtotal - $freeBudget;
+        //$basket_quantity_total = 0;
+        //foreach($basket as $row){
+        //    $basket_quantity_total += $row->qty;
+         //}
 
-        $free_items = $basket->sortByDesc('price')->take($companyOrders);
-        $free_item_value = 0;
-        foreach($free_items as $row){
-            $free_item_value += $row->price;
-        }
+        //$free_budget_remaining = $freeBudget - $basket_quantity_total;
+
+        //$free_items = $basket->sortByDesc('price')->take($companyOrders);
+        //$free_item_value = 0;
+        //foreach($free_items as $row){
+        //    $free_item_value += $row->price;
+        //}
 
         // dd($basket);
         return view('basket.index', [
             'basket' => $basket,
             'countries' => \App\Country::orderBy('langEN')->pluck('langEN', 'alpha2'),
-            'companyOrders' => $companyOrders,
-            'free_orders_remaining' => $free_orders_remaining,
+            'freeBudget' => $freeBudget,
+            'cartTotal' => $cartTotal,
         ]);
 
         
@@ -181,6 +184,19 @@ class CartController extends Controller
             'email' => $request->email,
         ];
         
+        // calculate remaining free budget, if any
+        $company_id = auth()->user()->company_id;
+        $freeBudget = Company::where('id', auth()->user()->company_id)->value('free_budget');
+
+        $subTotal = Cart::total();
+        $freeBudget = $freeBudget - $subTotal;
+        
+        if ($freeBudget <= 0 ){
+            $freeBudget = 0;
+        }
+        //set new free_budget
+        DB::table('companies')->where('id', $company_id)->update(['free_budget' => $freeBudget]);
+
         // save it all and send things
         $order->save();
         $this->gatewaySend($g3d);
