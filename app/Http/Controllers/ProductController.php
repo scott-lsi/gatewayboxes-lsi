@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::active()->get();
+        $products = Product::active()->orderBy('name', 'asc')->get();
         $company_id = auth()->user()->company_id;
 
         $freeBudget = Company::where('id', auth()->user()->company_id)->value('free_budget');
