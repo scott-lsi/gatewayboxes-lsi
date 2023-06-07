@@ -20,7 +20,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('userreg', 'UsersController@create');
     Route::post('userreg', 'UsersController@store');
-    Route::get('/users/{companyid}', 'UsersController@index');
+    Route::get('/users/{companyid?}', 'UsersController@index');
     Route::get('/users/{userid}/edit', 'UsersController@edit');
     Route::get('users/user/{user}', 'UsersController@show');
     Route::get('users/user/{user}/edit', 'UsersController@edit');

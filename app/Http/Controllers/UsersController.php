@@ -16,8 +16,12 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($companyid) {
-        $company = Company::find($companyid);
+    public function index($companyid = null) {
+        if($companyid){
+            $company = Company::find($companyid);
+        } else {
+            $company = null;
+        }
 
         return view('users.index', [
             'company' => $company
@@ -43,9 +47,11 @@ class UsersController extends Controller
             'password' => 'required'
         ]);
 
+        $data['company_id'] = isset($request->company_id) ? $request->company_id : auth()->user()->company_id;
+
         $user = User::create(request(['name','email','password']));
 
-        $user->company_id = auth()->user()->company_id;
+        $user->company_id = isset($request->company_id) ? $request->company_id : auth()->user()->company_id;
 
         $user->save();
 
@@ -67,16 +73,21 @@ class UsersController extends Controller
         ]);
     }
 
-    public function update(User $user)
+    public function update(Request $request, User $user)
     {
         $data = request()->validate([
             'name' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|email',
         ]);
+
+        $data['company_id'] = isset($request->company_id) ? $request->company_id : auth()->user()->company_id;
 
         $user->update($data);
 
-        return redirect('users/user/' . $user->id);
+        \Session::flash('message', 'User updated');
+		\Session::flash('alert-class', 'alert-success');
+
+        return redirect()->action('UsersController@show', $user->id);
     }
 
     public function destroy(User $user)

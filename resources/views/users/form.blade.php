@@ -25,3 +25,24 @@
         @endif
     </div>
 </div>
+
+@if(\Auth::user()->company_id == 1 && Auth::user()->isAdmin())
+<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+    <label for="company_id" class="col-md-4 control-label">Company</label>
+
+    <div class="col-md-6">
+        <select name="company_id" id="company_id" class="form-control">
+            <option value="">[ Please select a company ]</option>
+            @foreach(\App\Company::all() as $company)
+                <option value="{{ $company->id }}" @if($company->id == $user->company_id) selected @endif>{{ $company->company }}</option>
+            @endforeach
+        </select>
+
+        @if ($errors->has('company'))
+            <span class="help-block">
+                <strong>{{ $errors->first('company') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+@endif

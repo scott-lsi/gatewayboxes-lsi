@@ -15,11 +15,11 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts/nav')
+        @include('layouts.nav')
         
         @if(session()->has('message'))
         <div class="container">
-            <div class="alert alert-success">
+            <div class="alert {{ session()->get('alert-class') }}">
                 {{ session()->get('message') }}
             </div>
         </div>

@@ -6,6 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use App\Mail\NewRegistration;
 
 class RegisterController extends Controller
 {
@@ -39,6 +43,20 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        \Session::flash('message', 'Thank you for registering. You cannot log in immediately; we will review your account application as soon as possible.');
+		\Session::flash('alert-class', 'alert-success');
+        
+        Mail::to(env('REGISTRATION_EMAIL'))->send(new NewRegistration($request->name, $request->company));
+
+        return redirect()->route('login');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,6 +67,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
