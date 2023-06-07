@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('users/user/{user}', 'UsersController@update');
     Route::post('users/user/{user}/delete', 'UsersController@destroy');
 
+    Route::resource('company', 'CompanyController');
+
     Route::get('/products', 'ProductController@index');
     Route::get('/products/trashed', 'ProductController@getTrashed');
     Route::get('/products/{type}', 'ProductController@getProductsByType');

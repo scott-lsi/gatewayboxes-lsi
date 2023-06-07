@@ -71,6 +71,10 @@
                             <!-- <li><a href="/userreg">Make User</a></li> -->
                                                    
                             @endif
+                            @if(Auth::check() && Auth::user()->company_id == 1 && Auth::user()->isAdmin())
+                            <li><a href="{{ route('company.index') }}">Manage Companies</a></li>
+                            <li role="separator" class="divider"></li>
+                            @endif
                             <li><a href="{{ action('OrderController@getOrders', ['id' => auth()->user()->id]) }}">My Orders</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ action('ContactController@index') }}">Contact Page</a></li>
