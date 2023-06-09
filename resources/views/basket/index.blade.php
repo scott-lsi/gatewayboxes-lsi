@@ -71,7 +71,10 @@
                             </div>
                             {!! Form::close() !!}
                             
-                            <p><small><a href="{{ action('CartController@getRemoveItem', ['rowId' => $row->rowId]) }}">Remove</a></small></p>
+                            <p>
+                                <small><a href="{{ action('CartController@getRemoveItem', ['rowId' => $row->rowId]) }}">Remove</a></small> |
+                                <small><a href="{{ action('ProductController@personaliser', [$row->id, 0, $row->options->printjobref, $row->rowId]) }}">Edit Personalisation</a></small>
+                            </p>
                         </td>
                     </tr>
                     @endforeach

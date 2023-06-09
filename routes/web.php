@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/products/trashed', 'ProductController@getTrashed');
     Route::get('/products/{type}', 'ProductController@getProductsByType');
     Route::resource('product', 'ProductController');
-    Route::get('product/personaliser/{id}/{gatewaymulti?}', 'ProductController@personaliser');
+    Route::get('product/personaliser/{id}/{gatewaymulti?}/{printJobRef?}/{rowIdToUpdate?}', 'ProductController@personaliser');
     Route::get('productepa/{id?}', 'ProductController@getExternalPricingAPI');
     Route::get('image-gallery', 'GalleryImageController@index');
     Route::get('terms', 'TermController@index');
@@ -47,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('contact', 'ContactController@postContactUs');
 
     Route::get('basket', 'CartController@index');
-    Route::post('basket/add/{gatewaymulti?}', 'CartController@add');
+    Route::post('basket/add/{gatewaymulti?}/{rowIdToUpdate?}', 'CartController@add');
     Route::get('basket/destroy', 'CartController@destroy');
     Route::get('basket/redir/{id?}/{gatewaymultiId?}', 'CartController@gatewayRedir');
     Route::get('basket/remove-item/{rowId}', 'CartController@getRemoveItem');

@@ -40,61 +40,65 @@ class CartController extends Controller
             'freeBudget' => $freeBudget,
             'cartTotal' => $cartTotal,
         ]);
-
-        
     }
     
-    public function add(Request $request, $gatewaymultiId = null){
-        // get what's been typed in
-        $textInputs = array_filter(json_decode($_POST['data'], true), function($key){
-            return strpos($key, 'userText') === 0 && !strpos($key, '_');
-        }, ARRAY_FILTER_USE_KEY);
-        ksort($textInputs);
-        
-        // artwork
-        $gateway = $this->gatewayAdd($_POST['data']);
-        /* 
-        • if the product is set up with aspects, it will return the sku of that aspect rather than the parent product in $gateway->sku.
-        • however, it also returns a $gateway->extra->state array, which contains the parent's product_id (what is stored as `gateway`
-            in the db), so it can be fetched by that.
-        • products without aspects don't return $gateway->extra->state, so this isset() looks for it, does it if it's there but gets
-            the product via the sku if not.
-        */
-        if(isset($gateway->extra->state->product_id)){
-            $product = Product::where('gateway', $gateway->extra->state->product_id)->first();
+    public function add(Request $request, $gatewaymultiId, $rowIdToUpdate = null){
+        $gateway = $request->data;
+        $gateway = $request->data;
+        $options = [];
+
+        // get the product form the db
+        if(isset($gateway['extra']['state']['product_id'])){
+            $product = Product::where('gateway', $gateway['extra']['state']['product_id'])->first();
         } else {
-            $product = Product::where('sku', $gateway->sku)->first();
+            $product = Product::where('sku', $gateway['sku'])->first();
         }
 
         // quantity
-        $quantity = $gateway->quantity;
+        $quantity = $gateway['quantity'];
 
         // aspects
         $aspects = [];
-        if(isset($gateway->extra->state->aspects[0]->aspect_id)){
-            $aspects = [
-                'aspect_id' => $gateway->extra->state->aspects[0]->aspect_id,
-                'option_id' => $gateway->extra->state->aspects[0]->option_id,
-            ];
+        if(isset($gateway['extra']['state']['aspects'][0]['aspect_id'])){
+        	$aspects = [
+        		'aspect_id' => $gateway['extra']['state']['aspects'][0]['aspect_id'],
+        		'option_id' => $gateway['extra']['state']['aspects'][0]['option_id'],
+        	];
         }
 
         // options
-        $options = [];
-        $options['printjobid'] = $gateway->printJobId;
-        $options['printjobref'] = $gateway->printJobRef;
-        $options['imageurl'] = $gateway->thumburl;
-        $options['textinputs'] = $textInputs;
+        $options['printjobref'] = $gateway['ref'];
+        $options['imageurl'] = $gateway['thumbnails'][0]['url'];
         $options['aspects'] = $aspects;
+        // options -> text inputs
+        if(isset($gateway['extra']['state']['text_areas'])){
+            $textInputs = [];
+            foreach($gateway['extra']['state']['text_areas'] as $textarea){
+                if(isset($textarea['text'])){
+                    $textInputs[] = $textarea['text'];
+                }
+            }
+            $options['textinputs'] = $textInputs;
+        }
         
-        Cart::add(
-            $product->id, 
-            $product->name, 
-            $quantity, 
-            $product->price, 
-            $options
-        );
+        if($rowIdToUpdate){
+            $original_row = Cart::get($rowIdToUpdate);
+
+            $updated_row = Cart::update($rowIdToUpdate, [
+                'quantity' => $quantity,
+                'options' => $options
+            ]);
+        } else {
+            Cart::add(
+                $product->id, 
+                $product->name, 
+                $quantity, 
+                $product->price,
+                $options
+            );
+        }
         
-        if($gatewaymultiId){
+        if($gatewaymultiId > 0){
             // it's a gatewaymulti product
             $gatewaymultiProduct = Product::find($gatewaymultiId);
             $gatewaymultiGateways = json_decode($gatewaymultiProduct->gatewaymulti, true);
@@ -102,11 +106,11 @@ class CartController extends Controller
             $thisId = array_search($product->id, $gatewaymultiGateways);
         
             if(array_key_exists($thisId+1, $gatewaymultiGateways)){
-                return redirect()->action('CartController@gatewayRedir', [$gatewaymultiGateways[$thisId+1], $gatewaymultiId]);
+                return action('ProductController@personaliser', [$gatewaymultiGateways[$thisId+1], $gatewaymultiId]);
             }
         }
         
-        return redirect()->action('CartController@gatewayRedir');
+        return action('CartController@index');
     }
     
     public function gatewayRedir($id = null, $gatewaymultiId = null){
