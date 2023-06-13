@@ -44,7 +44,6 @@ class CartController extends Controller
     
     public function add(Request $request, $gatewaymultiId, $rowIdToUpdate = null){
         $gateway = $request->data;
-        $gateway = $request->data;
         $options = [];
 
         // get the product form the db
@@ -276,7 +275,7 @@ class CartController extends Controller
         $i = 1;
         $items = [];
         foreach(Cart::content() as $row){
-            if($row->options->printjobid){
+            if($row->options->printjobref){
                 $product = \App\Product::find($row->id);
                 
                 $productArray = [
@@ -285,12 +284,11 @@ class CartController extends Controller
                     'description' => $row->name,
                     'quantity' => $row->qty,
                     'type' => 2, // 2 = Print Job (http://developers.gateway3d.com/Print-iT_Integration#Item_Type_Codes)
-                    'print_job_id' => $row->options->printjobid,
                     'print_job_ref' => $row->options->printjobref,
                     'unit_sale_price' => $row->price,
                     'aspects' => [$row->options->aspects],
                 ];
-				
+                
 				$items[] = $productArray;
 				$i++;
             }
