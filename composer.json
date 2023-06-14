@@ -7,19 +7,20 @@
     "require": {
         "php": ">=7.0.0",
         "doctrine/dbal": "v2.5.13",
-        "fideloper/proxy": "~3.3",
-        "gloudemans/shoppingcart": "^2.4",
+        "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "~6.0",
-        "laravel/framework": "5.5.*",
+        "hardevine/shoppingcart": "^2.9",
+        "laravel/framework": "^6.0",
+        "laravel/helpers": "^1.6",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.4.0",
-        "maatwebsite/excel": "~2.1.0"
+        "laravelcollective/html": "^6.0",
+        "maatwebsite/excel": "^3.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "^7.0"
     },
     "autoload": {
         "classmap": [

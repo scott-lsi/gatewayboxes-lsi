@@ -16,7 +16,7 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/export', 'ExportController@exportOrders');
+    Route::get('/export/{email?}', 'ExportController@exportOrders');
 
     Route::get('userreg', 'UsersController@create');
     Route::post('userreg', 'UsersController@store');
