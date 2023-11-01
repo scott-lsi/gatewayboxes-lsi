@@ -52,7 +52,7 @@ class RegisterController extends Controller
         \Session::flash('message', 'Thank you for registering. You cannot log in immediately; we will review your account application as soon as possible.');
 		\Session::flash('alert-class', 'alert-success');
         
-        Mail::to(env('REGISTRATION_EMAIL'))->send(new NewRegistration($request->name, $request->company));
+        Mail::to(explode(',', env('REGISTRATION_EMAIL')))->send(new NewRegistration($request->name, $request->company));
 
         return redirect()->route('login');
     }
